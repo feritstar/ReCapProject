@@ -16,7 +16,7 @@ namespace ConsoleUI
             //    Console.WriteLine(item.ModelYear + " " + item.Description);
             //}
 
-            CarManager carManager = new CarManager(new EfCarDal());
+            //CarManager carManager = new CarManager(new EfCarDal());
 
             //foreach (var car in carManager.GetAll())
             //{
@@ -28,11 +28,25 @@ namespace ConsoleUI
             //    Console.WriteLine(car.Description);
             //}
 
-            foreach (var car in carManager.GetCarsByColorId(2))
-            {
-                Console.WriteLine(car.Description);
-            }
+            //foreach (var car in carManager.GetCarsByColorId(2))
+            //{
+            //    Console.WriteLine(car.Description);
+            //}
+
+            GetCarDetailsTest();
         }
 
+        private static void GetCarDetailsTest()
+        {
+            CarManager carManager = new CarManager(new EfCarDal());
+            foreach (var car in carManager.GetCarDetails())
+            {
+                Console.WriteLine(car.CarId + ", " +
+                                  car.BrandName + ", " +
+                                  car.ColorName + ", " +
+                                  car.ModelYear + ", " +
+                                  car.Description + "\n");
+            }
+        }
     }
 }
