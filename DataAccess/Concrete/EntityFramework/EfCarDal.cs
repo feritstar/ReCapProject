@@ -26,6 +26,7 @@ namespace DataAccess.Concrete.EntityFramework
                                 BrandName = b.BrandName,
                                 ColorName = cl.ColorName,
                                 ModelYear = c.ModelYear,
+                                DailyPrice = c.DailyPrice,
                                 Description = c.Description
                             };
                 return query.ToList();

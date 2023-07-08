@@ -45,6 +45,7 @@ namespace ConsoleUI
                                   car.BrandName + ", " +
                                   car.ColorName + ", " +
                                   car.ModelYear + ", " +
+                                  car.DailyPrice + ", " +
                                   car.Description + "\n");
             }
         }
