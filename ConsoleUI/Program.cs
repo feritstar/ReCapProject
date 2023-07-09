@@ -39,14 +39,58 @@ namespace ConsoleUI
         private static void GetCarDetailsTest()
         {
             CarManager carManager = new CarManager(new EfCarDal());
-            foreach (var car in carManager.GetCarDetails())
+
+            var carQuery = carManager.GetCarDetails();
+
+            if (carQuery.Success)
             {
-                Console.WriteLine(car.CarId + ", " +
-                                  car.BrandName + ", " +
-                                  car.ColorName + ", " +
-                                  car.ModelYear + ", " +
-                                  car.DailyPrice + ", " +
-                                  car.Description + "\n");
+                foreach (var car in carQuery.Data)
+                {
+                    Console.WriteLine(car.CarId + ", " +
+                                      car.BrandName + ", " +
+                                      car.ColorName + ", " +
+                                      car.ModelYear + ", " +
+                                      car.DailyPrice + ", " +
+                                      car.Description + "\n");
+                }
+            }
+            else
+            {
+                Console.WriteLine(carQuery.Message);
+            }
+
+            Console.WriteLine("************************************************\n");
+
+            BrandManager brandManager = new BrandManager(new EfBrandDal());
+
+            var brandQuery = brandManager.GetAll();
+            if (brandQuery.Success)
+            {
+                foreach (var brand in brandQuery.Data)
+                {
+                    Console.WriteLine(brand.BrandName + "\n");
+                }
+            }
+            else
+            {
+                Console.WriteLine(brandQuery.Message);
+            }
+
+            Console.WriteLine("************************************************\n");
+
+            ColorManager colorManager = new ColorManager(new EfColorDal());
+
+            var colorQuery = colorManager.GetAll();
+            if (colorQuery.Success)
+            {
+                foreach (var color in colorQuery.Data)
+                {
+                    Console.WriteLine(color.ColorName + "\n");
+                }                        
+            }
+            else
+            {
+                Console.WriteLine(colorQuery.Message);
             }
         }
     }
