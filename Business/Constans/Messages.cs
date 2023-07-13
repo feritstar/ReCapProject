@@ -11,11 +11,16 @@ namespace Business.Constans
         public static string CarAdded = "Car added succesfully!";
         public static string BrandAdded = "Brand added succesfully!";
         public static string ColorAdded = "Color added succesfully!";
+        public static string CustomerAdded = "Company added succesfully!";
         public static string CarInvalidName = "Car name is invalid.";
         public static string BrandInvalidName = "Brand name is invalid.";
         public static string ColorInvalidName = "Color name is invalid.";
+        public static string CustomerInvalidName = "Company name is invalid.";
         public static string CarListed = "Cars are listed as desired.";
         public static string BrandListed = "Brands are listed as desired.";
         public static string ColorListed = "Colors are listed as desired.";
+        public static string CustomerListed = "Companies are listed as desired.";
+        public static string CustomerDeleted = "Company is deleted.";
+        public static string CustomerUpdated = "Company is updated.";
     }
 }
