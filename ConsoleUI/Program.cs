@@ -1,6 +1,7 @@
 ﻿using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.InMemory;
+using Entities.Concrete;
 using System;
 
 namespace ConsoleUI
@@ -10,7 +11,9 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             //CarManager carManager = new CarManager(new InMemoryCarDal());
-
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            UserManager userManager = new UserManager(new EfUserDal());
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
             //foreach (var item in carManager.GetAll())
             //{
             //    Console.WriteLine(item.ModelYear + " " + item.Description);
@@ -33,7 +36,40 @@ namespace ConsoleUI
             //    Console.WriteLine(car.Description);
             //}
 
-            GetCarDetailsTest();
+            //GetCarDetailsTest();
+
+            customerManager.Add(
+                new Customer 
+                {
+                    CompanyName = "Sixt Rent A Car",
+                    Id = 12
+                });
+            userManager.Add(
+                new User
+                {
+                    Id = 12,                    
+                    FirstName = "John",
+                    LastName = "Doe",
+                    EmailAddress = "johndoe@something.com",
+                    Password = "12345"
+                });
+            userManager.Add(
+                new User
+                {
+                    Id = 13,
+                    FirstName = "John2",
+                    LastName = "Doe2",
+                    EmailAddress = "john2doe2@something.com",
+                    Password = "1234567"
+                });
+            rentalManager.Add(
+                new Rental
+                {
+                    CarId = 1,
+                    CustomerId = 1,
+                    RentDate = DateTime.Now.AddDays(1),
+                    ReturnDate = DateTime.Now.AddDays(15),
+                });
         }
 
         private static void GetCarDetailsTest()
