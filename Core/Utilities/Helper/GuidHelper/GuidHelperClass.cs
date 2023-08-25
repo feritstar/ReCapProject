@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Core.Utilities.Helper.GuidHelper
 {
-    public class GuidHelper
+    public class GuidHelperClass
     {
         /// <summary>
         /// GUID => Global Unique Identifier
